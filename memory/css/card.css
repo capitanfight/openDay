@@ -1,0 +1,42 @@
+.java {
+    background-image: url("../img/java\ \(1\).png");
+}
+
+.cpp {
+    background-image: url("../img/cpp\ \(1\).png");
+}
+
+.cS {
+    background-image: url("../img/c.png");
+}
+
+.js {
+    background-image: url("../img/js\ \(1\).png");
+}
+
+.php {
+    background-image: url("../img/php\ \(1\).png");
+}
+
+.mySql {
+    background-image: url("../img/mysql\ \(1\).png");
+}
+
+.python {
+    background-image: url("../img/python.png");
+}
+
+.ruby {
+    background-image: url("../img/ruby.png");
+}
+
+.card {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+}
+
+.covered {
+    background-image: url("../img/itis_logo\ \(1\).png");
+}

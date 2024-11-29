@@ -3,6 +3,7 @@ const mainContent = document.getElementById("main-content")
 const button = document.getElementById("start")
 const timer = document.createElement("p")
 const punti_tag = document.createElement("p")
+const game_timer = document.getElementById("time-bar")
 
 const gameInfo = {
     container: document.getElementById("info-game"),
@@ -14,6 +15,7 @@ const gameInfo = {
 timer.classList.add("untangible-text")
 punti_tag.classList.add("untangible-text")
 punti_tag.setAttribute("id", "punti")
+timer.setAttribute("id", "start-timer")
 
 gameInfo.max_punti_tag.textContent = "il tuo punteggio massimo è "
 gameInfo.max_punti_tag.appendChild(gameInfo.max_punti)
@@ -24,7 +26,7 @@ mainContent.appendChild(timer)
 mainContent.appendChild(punti_tag)
 gameInfo.container.appendChild(gameInfo.max_punti_tag)
 
-const possible_color = ["green", "red", "yellow", "blue"]
+const possible_color = ["green", "red", "yellow", "blue", "cyan", "violet", "orange"]
 
 var cont
 var temp
@@ -45,7 +47,7 @@ function startGame() {
     button.style.display = "none"
     
     timer.textContent = ""
-    timer.setAttribute("id", "start-timer")
+    timer.style.display = "block"
 
     temp = setInterval(countDown, 1000)
     countDown()
@@ -59,7 +61,8 @@ function countDown() {
         punti_tag.textContent = 0
 
         game = setInterval(time, 1000)
-        timer.setAttribute("id", "game-timer")
+
+        timer.style.display = "none"
         time()
     } else if (cont == 0) {
         timer.textContent = "GO!"
@@ -70,6 +73,10 @@ function countDown() {
 }
 
 function time() {
+    if (sec == 30) {
+        game_timer.style.display = "block"
+    }
+
     if(sec == 0) {
         clearInterval(game)
 
@@ -77,7 +84,7 @@ function time() {
         return
     }
 
-    timer.textContent = sec + "s"
+    // timer.textContent = sec + "s"
     sec--
 }
 
@@ -109,6 +116,7 @@ function gameEnd() {
     square.style.display = "none"
     timer.textContent = ""
     punti_tag.textContent = ""
+    game_timer.style.display = "none"
 
     gameInfo.punti.textContent = punti
     
